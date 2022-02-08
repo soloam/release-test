@@ -1,48 +1,32 @@
-name-template: "$RESOLVED_VERSION"
-tag-template: "$RESOLVED_VERSION"
-change-template: "- #$NUMBER $TITLE @$AUTHOR"
-sort-direction: ascending
+name-template: "v$RESOLVED_VERSION 🌈"
+tag-template: "v$RESOLVED_VERSION"
 categories:
-  - title: ":boom: Breaking changes"
-    label: "Breaking Change"
-
-  - title: ":sparkles: New features"
-    label: "pr: new-feature"
-
-  - title: ":zap: Enhancements"
-    label: "pr: enhancement"
-
-  - title: ":recycle: Refactor"
-    label: "pr: refactor"
-
-  - title: ":bug: Bug Fixes"
-    label: "pr: bugfix"
-
-  - title: ":arrow_up: Dependency Updates"
+  - title: "🚀 Features"
     labels:
-      - "pr: dependency-update"
-      - "dependencies"
-
-include-labels:
-  - "Breaking Change"
-  - "pr: enhancement"
-  - "pr: dependency-update"
-  - "pr: new-feature"
-  - "pr: bugfix"
-  - "pr: refactor"
-
+      - "feature"
+      - "enhancement"
+  - title: "🐛 Bug Fixes"
+    labels:
+      - "fix"
+      - "bugfix"
+      - "bug"
+  - title: "🧰 Maintenance"
+    label: "chore"
+  - title: "🧺 Miscellaneous"
+    label: "misc"
+change-template: "- $TITLE @$AUTHOR (#$NUMBER)"
+change-title-escapes: '\<*_&' # You can add # and @ to disable mentions, and add ` to disable code blocks.
 version-resolver:
+  major:
+    labels:
+      - "major"
   minor:
     labels:
-      - "Breaking Change"
-      - "pr: enhancement"
-      - "pr: dependency-update"
-      - "pr: new-feature"
+      - "minor"
   patch:
     labels:
-      - "pr: bugfix"
-  default: minor
-
+      - "patch"
+  default: patch
 template: |
-  [![Downloads for this release](https://img.shields.io/github/downloads/hacs/integration/$RESOLVED_VERSION/total.svg)](https://github.com/hacs/integration/releases/$RESOLVED_VERSION)
+  ## Changes
   $CHANGES
