@@ -40,6 +40,6 @@ version-resolver:
       - "patch"
   default: patch
 template: |
-  ## Changes
+  ## Changes to this release
 
   $CHANGES
