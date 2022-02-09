@@ -34,8 +34,6 @@ autolabeler:
     branch:
       - '/docs{0,1}\/.+/'
   - label: "bug"
-    branch:
-      - "/fix.*/i"
     title:
       - "/fix.*/i"
   - label: "enhancement"
