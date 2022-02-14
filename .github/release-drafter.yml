@@ -49,6 +49,9 @@ autolabeler:
       - "*.md"
   - label: "bug"
     title:
+      - "/\\[?(bug)\\]?.*/i"
+  - label: "bugfix"
+    title:
       - "/\\[?(fix)\\]?.*/i"
   - label: "feature"
     title:
