@@ -1,0 +1,28 @@
+name: Build
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Get version
+        id: version
+        uses: home-assistant/actions/helpers/version@master
+
+      - name: Patch manifest and zip
+        run: |
+          sed -i 's/0.0.0/${{ steps.version.outputs.version }}/' custom_components/my_test/manifest.json
+          cd custom_components/my_test/
+          zip ../../my_test.zip -r ./
+      - uses: gacts/upload-to-release@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          file: ./my_test.zip
+          type: application/zip

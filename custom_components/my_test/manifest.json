@@ -1,0 +1,13 @@
+{
+  "domain": "pid_controller",
+  "name": "PID Controller",
+  "version": "0.0.0",
+  "documentation": "https://github.com/soloam/ha-pid-controller/",
+  "issue_tracker": "https://github.com/soloam/ha-pid-controller/issues",
+  "dependencies": [],
+  "after_dependencies": [],
+  "config_flow": false,
+  "codeowners": ["@Soloam"],
+  "requirements": [],
+  "iot_class": "calculated"
+}

@@ -1,0 +1,5 @@
+{
+  "yaml.schemas": {
+    "https://json.schemastore.org/github-workflow.json": "file:///home/diogo/Documents/Informatica/Development/VSCode/release-test/.github/workflows/build.yaml"
+  }
+}
