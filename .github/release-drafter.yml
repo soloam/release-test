@@ -1,6 +1,9 @@
-name-template: "$RESOLVED_VERSION"
-tag-template: "$RESOLVED_VERSION"
+name-template: "v$RESOLVED_VERSION"
+tag-template: "v$RESOLVED_VERSION"
 categories:
+  - title: "📣 Breaking Changes"
+    labels:
+      - "breaking_change"
   - title: "🚀 Features"
     labels:
       - "feature"
@@ -11,36 +14,49 @@ categories:
       - "bugfix"
       - "bug"
   - title: "🧰 Maintenance"
-    label: "chore"
-  - title: "🧺 Miscellaneous"
-    label: "misc"
+    labels:
+      - "maintenance"
+  - title: "📚 Documentation"
+    labels:
+      - "documentation"
 change-template: "- $TITLE @$AUTHOR (#$NUMBER)"
-change-title-escapes: '\<*_&' # You can add # and @ to disable mentions, and add ` to disable code blocks.
+change-title-escapes: '\<*_&'
 version-resolver:
   major:
     labels:
       - "major"
+      - "breaking_change"
   minor:
     labels:
       - "minor"
+      - "feature"
+      - "enhancement"
   patch:
     labels:
       - "patch"
+      - "fix"
+      - "bugfix"
+      - "bug"
+      - "maintenance"
+      - "documentation"
   default: patch
 autolabeler:
-  - label: "chore"
+  - label: "github structure"
+    files:
+      - ".github/*"
+  - label: "documentation"
     files:
       - "*.md"
-    branch:
-      - '/docs{0,1}\/.+/'
   - label: "bug"
     title:
-      - "/fix.*/i"
-  - label: "enhancement"
-    branch:
-      - '/feature\/.+/'
-    body:
-      - "/JIRA-[0-9]{1,4}/"
+      - "/\\[?(fix)\\]?.*/i"
+  - label: "feature"
+    title:
+      - "/\\[?(add|feat)\\]?.*/i"
+  - label: "feature"
+    title:
+      - "/\\[?(breaking)\\]?.*/i"
 template: |
+  [![Downloads for this release](https://img.shields.io/github/downloads/soloam/release-test/$RESOLVED_VERSION/total.svg)](https://github.com/soloam/release-test/releases/$RESOLVED_VERSION)
   ## Changes
   $CHANGES
