@@ -57,6 +57,6 @@ autolabeler:
     title:
       - "/\\[?(breaking)\\]?.*/i"
 template: |
-  [![Downloads for this release](https://img.shields.io/github/downloads/soloam/release-test/$RESOLVED_VERSION/total.svg)](https://github.com/soloam/release-test/releases/$RESOLVED_VERSION)
+  [![Downloads for this release](https://img.shields.io/github/downloads/soloam/release-test/v$RESOLVED_VERSION/total.svg)](https://github.com/soloam/release-test/releases/v$RESOLVED_VERSION)
   ## Changes
   $CHANGES
